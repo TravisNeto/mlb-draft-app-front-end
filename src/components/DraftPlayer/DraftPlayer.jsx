@@ -37,3 +37,4 @@ const DraftPlayer = () => {
 };
 
 export default DraftPlayer;
+

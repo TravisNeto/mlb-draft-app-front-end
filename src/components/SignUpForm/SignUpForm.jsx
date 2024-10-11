@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import * as authService from '../../services/authService.js'
 
 const SignupForm = (props) => {
   const navigate = useNavigate();
@@ -8,6 +9,7 @@ const SignupForm = (props) => {
     username: '',
     password: '',
     passwordConf: '',
+    email: '',
   });
 
   const updateMessage = (msg) => {
@@ -29,7 +31,7 @@ const SignupForm = (props) => {
     }
   }
 
-  const { username, password, passwordConf } = formData;
+  const { username, password, passwordConf, email } = formData;
 
   const isFormInvalid = () => {
     return !(username && password && password === passwordConf);
@@ -47,6 +49,16 @@ const SignupForm = (props) => {
             id="name"
             value={username}
             name="username"
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="email">Email:</label>
+          <input
+            type="text"
+            id="email"
+            value={email}
+            name="email"
             onChange={handleChange}
           />
         </div>
@@ -82,3 +94,4 @@ const SignupForm = (props) => {
 };
 
 export default SignupForm;
+

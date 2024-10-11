@@ -10,13 +10,12 @@ body {
   color: white;
 }
 
-/* Style links */
+
 a {
   text-decoration: none;
-  color: #007bff; /* Bootstrap primary color */
+  color: #007bff;
 }
 
 a:hover {
-  text-decoration: underline; /* Underline on hover */
+  text-decoration: underline;
 }
-

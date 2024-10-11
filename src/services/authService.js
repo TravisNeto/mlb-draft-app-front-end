@@ -2,7 +2,7 @@ const BACKEND_URL = 'http://localhost:3000';
 
 const signup = async (formData) => {
   try {
-    const res = await fetch(`${BACKEND_URL}/users/signup`, {
+    const res = await fetch(`${BACKEND_URL}/users/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
