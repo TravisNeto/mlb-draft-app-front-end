@@ -7,22 +7,24 @@ import SignInForm from './components/SignInForm/SignInForm';
 import SignUpForm from './components/SignUpForm/SignUpForm';
 import './App.css'
 
+
 const App = () => {
   const [teams, setTeams] = useState([]);
-
+  const [user, setUser] = useState({})
   return (
     <div>
       <h1>Welcome to the MLB Draft App!</h1>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/team" element={<Team />} />
-        <Route path="/draft" element={<DraftPlayer />} />
-        <Route path="/signin" element={<SignInForm />} />
-        <Route path="/signup" element={<SignUpForm />} />
+        <Route path="/" element={<Dashboard user={user} setUser={setUser}/>} />
+        <Route path="/team" element={<Team user={user} setUser={setUser} />} />
+        <Route path="/draft" element={<DraftPlayer user={user}/>} />
+        <Route path="/signin" element={<SignInForm user={user} setUser={setUser}/>} />
+        <Route path="/signup" element={<SignUpForm user={user} setUser={setUser}/>} />
       </Routes>
     </div>
   );
 };
+
 
 export default App;
 

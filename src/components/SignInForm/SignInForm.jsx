@@ -21,11 +21,13 @@ const SigninForm = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('here')
     try {
       const user = await authService.signin(formData);
 
       props.setUser(user);
-      navigate('/');
+      console.log('navigate to draft')
+      navigate('/draft');
     } catch (err) {
       updateMessage(err.message);
     }
