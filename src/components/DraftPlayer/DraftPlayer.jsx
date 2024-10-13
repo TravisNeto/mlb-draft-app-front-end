@@ -1,18 +1,21 @@
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import AuthContext from '../../services/authContext.js';
+const BACKEND_URL = import.meta.env.VITE_API_URL;
 
 const DraftPlayer = () => {
   const [playerId, setPlayerId] = useState('');
-  const { auth } = useContext(AuthContext);
+  //const { auth } = useContext(AuthContext);
 
   const handleDraft = async (e) => {
     e.preventDefault();
     try {
+      const token = localStorage.getItem('token')
+      const teamId = localStorage.getItem('teamId') // added line
       await axios.post(
-        '/team/draft',
+        BACKEND_URL + '/teams/draft',
         { playerId },
-        { headers: { Authorization: `Bearer ${auth.token}` } }
+        { headers: { Authorization: `Bearer ${token}` } }
       );
       alert('Player drafted!');
     } catch (error) {

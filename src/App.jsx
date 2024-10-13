@@ -5,6 +5,7 @@ import Dashboard from './components/Dashboard/Dashboard.jsx';
 import DraftPlayer from './components/DraftPlayer/DraftPlayer.jsx';
 import SignInForm from './components/SignInForm/SignInForm';
 import SignUpForm from './components/SignUpForm/SignUpForm';
+import AddTeam from './components/AddTeam/AddTeam.jsx'
 import './App.css'
 
 
@@ -16,10 +17,12 @@ const App = () => {
       <h1>Welcome to the MLB Draft App!</h1>
       <Routes>
         <Route path="/" element={<Dashboard user={user} setUser={setUser}/>} />
+        <Route path="/team/add" element={<AddTeam user={user}/>} />
         <Route path="/team" element={<Team user={user} setUser={setUser} />} />
         <Route path="/draft" element={<DraftPlayer user={user}/>} />
         <Route path="/signin" element={<SignInForm user={user} setUser={setUser}/>} />
         <Route path="/signup" element={<SignUpForm user={user} setUser={setUser}/>} />
+        
       </Routes>
     </div>
   );

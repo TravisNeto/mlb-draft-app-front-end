@@ -1,4 +1,4 @@
-const BACKEND_URL = 'http://localhost:3000';
+const BACKEND_URL = import.meta.env.VITE_API_URL;
 
 const signup = async (formData) => {
   try {
@@ -11,6 +11,7 @@ const signup = async (formData) => {
     if (json.err) {
       throw new Error(json.err);
     }
+    localStorage.setItem('token', json.token)
     return json;
   } catch (err) {
     console.log(err);
@@ -33,6 +34,7 @@ const signin = async (user) => {
   
       if (json.token) {
         const user = JSON.parse(atob(json.token.split('.')[1]));
+        localStorage.setItem('token', json.token)
         return user;
       }
     } catch (err) {
